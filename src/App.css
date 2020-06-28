@@ -1,38 +1,60 @@
-.App {
+.header {
+  margin-top: 1em;
+  line-height: 48px; 
+  text-align: center;
+  color: #f4f4f4; 
+  font-family: 'Playfair Display', serif;
+  font-size: 45px; 
+  font-weight: bold; 
+  margin-left: 1em;
+}
+
+.content {
+  text-align: center;
+  color: #f4f4f4; 
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+}
+
+.footer {
+  color: #f4f4f4; 
+  font-family: Georgia;
+  font-size: 15px; 
+  font-weight: normal; 
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+hr.fancy-line { 
+  border: 0; 
+  height: 1px;
+  position: relative;
+  margin: 0.5em 0; /* Keep other elements away from pseudo elements*/
+}
+hr.fancy-line:before {
+  top: -0.5em;
+  height: 1em;
+}
+hr.fancy-line:after {
+  content:'';
+  height: 0.5em;   /* half the height of :before */
+  top: 1px;        /* height of hr*/
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+hr.fancy-line:before, hr.fancy-line:after {
+  content: '';
+  position: absolute;
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+hr.fancy-line, hr.fancy-line:before {
+  background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 75%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 75%, color-stop(0%,rgba(0,0,0,0.1)), color-stop(75%,rgba(0,0,0,0)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 75%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 75%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 75%);
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 75%);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body, hr.fancy-line:after {
+  background: #f4f4f4;
 }
