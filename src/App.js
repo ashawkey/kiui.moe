@@ -11,8 +11,8 @@ function App() {
       </div>
       <div className="content">
         Seeking consolation of meaning in a mad song, walking alone on the bright road.<br/>
-        <img className="heart" src={heart} alt="heart"/> <br/>
-        <a href="https://ashawkey.github.io/blogs">Blogs</a>
+        
+        <a href="https://ashawkey.github.io/blogs"> <img className="heart" src={heart} alt="heart"/> </a>
       </div>
       <div className="footer">
         <hr className="fancy-line" />
