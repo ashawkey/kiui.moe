@@ -2,22 +2,26 @@
   margin-top: 1em;
   line-height: 48px; 
   text-align: center;
-  color: #f4f4f4; 
+  color: #D7C4BB; 
   font-family: 'Playfair Display', serif;
   font-size: 45px; 
   font-weight: bold; 
   margin-left: 1em;
 }
 
+.heart {
+  margin-top: 0;
+}
+
 .content {
   text-align: center;
-  color: #f4f4f4; 
+  color: #D7C4BB; 
   font-family: 'Playfair Display', serif;
   font-weight: bold;
 }
 
 .footer {
-  color: #f4f4f4; 
+  color: #D7C4BB; 
   font-family: Georgia;
   font-size: 15px; 
   font-weight: normal; 
