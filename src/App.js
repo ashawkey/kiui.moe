@@ -6,12 +6,12 @@ function App() {
   return (
     <div className="App">
       <div className="header"> 
-        Hawia &
+        Hawome &
         <hr className="fancy-line" />
       </div>
       <div className="content">
-        Seeking consolation of meaning in a mad song, walking alone on the bright road.<br/>
-        
+        Seeking consolation of meaning in a mad song, <br/> 
+        walking alone on the bright road.<br/>
         <a href="https://ashawkey.github.io/blogs"> <img className="heart" src={heart} alt="heart"/> </a>
       </div>
       <div className="footer">
