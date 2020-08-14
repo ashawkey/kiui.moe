@@ -1,28 +1,19 @@
-.header {
-  margin-top: 1em;
-  line-height: 48px; 
-  text-align: center;
-  color: rgba(255,255,255,0.8); 
-  font-family: 'Playfair Display', serif;
-  font-size: 35px; 
-  font-weight: bold; 
-  margin-left: 1em;
-}
-
 @keyframes changeSize {
   from {
     transform: scale(0.85, 0.9);
-    opacity: 0.8;
   }
 
   to {
     transform: scale(1.0, 1.0);
-    opacity: 1.0;
   }
 }
 
+.App {
+  height: 100%;
+  width: 100%;
+}
+
 .heart {
-  margin-top: 0;
   animation-duration: 1s;
   animation-name: changeSize;
   animation-iteration-count: infinite;
@@ -33,40 +24,10 @@
   animation-duration: 0.5s;
 }
 
-
-.content {
-  text-align: center;
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: rgba(255,255,255,0.8); 
-  font-family: 'Playfair Display', serif;
-  font-weight: bold;
-}
-
-.footer {
-  color: rgba(255,255,255,0.8); 
-  font-family: Georgia;
-  font-size: 15px; 
-  font-weight: normal; 
-  text-align: center;
-}
-
-hr.fancy-line { 
-  border: 0; 
-  height: 5px;
-  position: relative;
-  margin: 0.5em 0; /* Keep other elements away from pseudo elements*/
-}
-
-hr.fancy-line:before {
-  top: -0.5em;
-  height: 1em;
-}
-
-hr.fancy-line:after {
-  content:'';
-  height: 0.5em;   /* half the height of :before */
-  top: 1px;        /* height of hr*/
-}
-
-hr.fancy-line, hr.fancy-line:before {
-  background: radial-gradient(ellipse at center, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 75%);
 }
