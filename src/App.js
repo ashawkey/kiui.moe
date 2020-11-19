@@ -13,15 +13,15 @@ function App() {
   const pages = [
     {
       color: '#adadad',
-      component: <a href="https://hawia.xyz/nonsense"> <img alt="purple" className="icon heart" src={icon_purple_heart}/> </a>,
+      component: <a href="https://hawia.xyz/nonsense/"> <img alt="purple" className="icon heart" src={icon_purple_heart}/> </a>,
     },
     {
       color: '#a5c7c9',
-      component: <a href="https://hawia.xyz/blogs"> <img alt="grey" className="icon heart" src={icon_grey_heart}/> </a>,
+      component: <a href="https://hawia.xyz/blogs/"> <img alt="grey" className="icon heart" src={icon_grey_heart}/> </a>,
     },
     {
       color: '#ffcccc',
-      component: <a href="https://hawia.xyz/umbra"> <img alt="white" className="icon heart" src={icon_white_heart}/> </a>,
+      component: <a href="https://hawia.xyz/umbra/"> <img alt="white" className="icon heart" src={icon_white_heart}/> </a>,
     },
     /*
     {
