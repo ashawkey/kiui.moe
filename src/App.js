@@ -1,10 +1,14 @@
 import React, {useState} from 'react';
-import './App.css';
-import icon_grey_heart from "./grey.png"
-import icon_purple_heart from './purple.png'
-import icon_white_heart from './white.png'
-//import icon_clock from './clock.png'
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+import './App.css';
+
+import icon_grey_heart from "./static/grey.png"
+import icon_purple_heart from './static/purple.png'
+import icon_white_heart from './static/white.png'
+import icon_timer from './static/timer.png'
+
+import Pheobe from './phoebe'
+
 
 function App() {
   const [page, setPage] = useState(0);
@@ -12,23 +16,30 @@ function App() {
   // href and icon
   const pages = [
     {
+      name: 'phoebe',
+      color: '#FFBA84',
+      component: Pheobe(),
+    },
+    {
+      name: 'nonsense',
       color: '#adadad',
       component: <a href="https://hawia.xyz/nonsense/"> <img alt="purple" className="icon heart" src={icon_purple_heart}/> </a>,
     },
     {
+      name: 'blogs',
       color: '#a5c7c9',
       component: <a href="https://hawia.xyz/blogs/"> <img alt="grey" className="icon heart" src={icon_grey_heart}/> </a>,
     },
     {
+      name: 'umbra',
       color: '#ffcccc',
       component: <a href="https://hawia.xyz/umbra/"> <img alt="white" className="icon heart" src={icon_white_heart}/> </a>,
     },
-    /*
     {
-      color: '#66BAB7',
-      component: <a href="https://hawia.xyz/clock"> <img className="icon clock" src={icon_clock}/> </a>,
+      name: 'lifetime',
+      color: '#ffffff',
+      component: <a href="https://hawia.xyz/lifetime/"> <img alt="timer" className="icon timer" src={icon_timer}/> </a>,
     },
-    */
   ]
 
   function prevPage() {
@@ -51,7 +62,7 @@ function App() {
           rightHandler={nextPage}
           customStyle={{
             width: "100%",
-            height: "100vh",
+            height: "100%",
             backgroundColor: pages[page].color,
             transition: "background-color .5s ease-out",
           }}

@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.ph {
+  position: relative;
+  width: 256px;
+}
+
+@keyframes typing {
+  from { width: 0% }
+  to { width: 100% } /* 100% - padding*/
+}
+
+.bubble {
+  width: 100%;
+  white-space: nowrap; /* Keeps the content on a single line */
+	background-color: #000000;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  color: #ffffff;
+  font-family: 'Cherry Swash', cursive;
+  text-align: center;
+	padding: 10px 10px;
+	border-radius: 5px;
+}
+
