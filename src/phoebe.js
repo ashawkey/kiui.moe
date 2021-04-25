@@ -72,13 +72,13 @@ function Pheobe() {
     <div className="container" onClick={(e) => {handleClick(e)}}>
       <div className='bubble' style={{
         visibility: visible ? 'visible' : 'hidden',
-        animation: visible? ('typing ' + Math.floor(lines[line].length / 12).toString() + 's' + ' steps(' + Math.floor(lines[line].length * 1.5).toString() + ', end)') : null,
+        animation: visible? ('typing ' + Math.floor(lines[line].length / 15).toString() + 's' + ' steps(' + Math.floor(lines[line].length * 1.5).toString() + ', end)') : null,
         fontSize: window.screen.width <= 400 ? '16px' : '22px',
       }} onAnimationEnd={(e) => {handleBubbleEnd(e)}}>
           {lines[line]}
       </div>
       <img alt="sprite" className="ph" 
-           onMouseEnter={(e) => {handleEnter(e)}}
+           onMouseOver={(e) => {handleEnter(e)}}
            src={sprite}/>
     </div>
   );

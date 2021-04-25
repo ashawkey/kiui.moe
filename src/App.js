@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import './App.css';
 
@@ -12,42 +12,101 @@ import Pheobe from './phoebe'
 
 function App() {
   const [page, setPage] = useState(0);
+  const [line, setLine] = useState(0);
+  const [visible, setVisible] = useState(false);
+  
+  function renderPage(p) {
+    return (
+      <div className="container" onMouseOver={(e) => {handleEnter(e)}} onMouseLeave={(e) => {handleLeave(e)}}>
+        <div className='bubble' style={{
+          visibility: visible ? 'visible' : 'hidden',
+          animation: visible? ('typing ' + (Math.floor(p.lines[line].length / 15) + 0.5).toString() + 's' + ' steps(' + Math.floor(p.lines[line].length * 1.5).toString() + ', end)') : null,
+          fontSize: window.screen.width <= 400 ? '16px' : '22px',
+        }} onAnimationEnd={(e) => {handleBubbleEnd(e, p.lines.length)}}>
+          {p.lines[line]}
+        </div>
+        {p.component}
+      </div>
+    );
+  }
+  
+  const [saver, setSaver] = useState(null);
+
+  function handleEnter(event) {
+    event.preventDefault();
+    setSaver(setTimeout(() => {
+      setVisible(true);
+    }, 1000));
+    //console.log('set')
+  }
+
+  function handleLeave(event) {
+    event.preventDefault();
+    clearTimeout(saver);
+    //console.log('cleared')
+  }
+
+  function handleBubbleEnd(event, length) {
+    event.preventDefault();
+    // hide the visible after animation end.
+    setTimeout(() => {
+      setVisible(false);
+      if (line < length - 1) {
+        setLine((line + 1) % length);
+      }
+    }, 2000);
+  }
 
   // href and icon
   const pages = [
     {
       name: 'phoebe',
       color: '#FFBA84',
-      component: Pheobe(),
     },
     {
       name: 'nonsense',
       color: '#adadad',
+      lines: ['This is NoNSeNSe, a minimal online note taking App.'],
       component: <a href="https://hawia.xyz/nonsense/"> <img alt="purple" className="icon heart" src={icon_purple_heart}/> </a>,
-    },
-    {
-      name: 'blogs',
-      color: '#a5c7c9',
-      component: <a href="https://hawia.xyz/blogs/"> <img alt="grey" className="icon heart" src={icon_grey_heart}/> </a>,
     },
     {
       name: 'umbra',
       color: '#ffcccc',
+      lines: ['Ubi est lux, illic est umbra.'],
       component: <a href="https://hawia.xyz/umbra/"> <img alt="white" className="icon heart" src={icon_white_heart}/> </a>,
     },
     {
       name: 'lifetime',
       color: '#ffffff',
+      lines: ['Memento mori.'],
       component: <a href="https://hawia.xyz/lifetime/"> <img alt="timer" className="icon timer" src={icon_timer}/> </a>,
     },
+    {
+      name: 'blogs',
+      color: '#a5c7c9',
+      lines: ['Well ... This used to be a blog system, but now almost unused.'],
+      component: <a href="https://hawia.xyz/blogs/"> <img alt="grey" className="icon heart" src={icon_grey_heart}/> </a>,
+    },
+  ] 
+
+  const rendered_pages = [
+    Pheobe(),
+    renderPage(pages[1]),
+    renderPage(pages[2]),
+    renderPage(pages[3]),
+    renderPage(pages[4]),
   ]
 
   function prevPage() {
+    setVisible(false); 
+    setLine(0);
     setPage((page - 1 + pages.length) % pages.length);
     //console.log('prev', page);
   }
-
+  
   function nextPage() {
+    setVisible(false); 
+    setLine(0);
     setPage((page + 1) % pages.length);
     //console.log('next', page);
   }
@@ -68,7 +127,7 @@ function App() {
           }}
         >
           <div className='centered unselectable'>
-            {pages[page].component}
+            {rendered_pages[page]}
           </div>
         </ReactScrollWheelHandler>
       </div>
