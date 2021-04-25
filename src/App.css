@@ -25,8 +25,8 @@
 }
 
 .icon {
-  height: 256px;
-  width: 256px;
+  height: 200px;
+  width: 200px;
   animation-duration: 1s;
   animation-name: changeSize;
   animation-iteration-count: infinite;

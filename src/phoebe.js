@@ -21,6 +21,7 @@ function Pheobe() {
 
   const lines = [
     "Welcome to haw's homepage.",
+    "I'm here to guide you.",
     "Feel free to scroll and see around.",
   ]
 
@@ -78,7 +79,7 @@ function Pheobe() {
           {lines[line]}
       </div>
       <img alt="sprite" className="ph" 
-           onMouseOver={(e) => {handleEnter(e)}}
+           onMouseEnter={(e) => {handleEnter(e)}}
            src={sprite}/>
     </div>
   );

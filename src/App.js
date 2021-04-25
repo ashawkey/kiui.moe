@@ -13,14 +13,15 @@ import Pheobe from './phoebe'
 function App() {
   const [page, setPage] = useState(0);
   const [line, setLine] = useState(0);
+  const [saver, setSaver] = useState(null);
   const [visible, setVisible] = useState(false);
   
   function renderPage(p) {
     return (
-      <div className="container" onMouseOver={(e) => {handleEnter(e)}} onMouseLeave={(e) => {handleLeave(e)}}>
+      <div className="container" onMouseEnter={(e) => {handleEnter(e)}} onMouseLeave={(e) => {handleLeave(e)}}>
         <div className='bubble' style={{
           visibility: visible ? 'visible' : 'hidden',
-          animation: visible? ('typing ' + (Math.floor(p.lines[line].length / 15) + 0.5).toString() + 's' + ' steps(' + Math.floor(p.lines[line].length * 1.5).toString() + ', end)') : null,
+          animation: visible ? ('typing ' + (Math.floor(p.lines[line].length / 15) + 0.5).toString() + 's' + ' steps(' + Math.floor(p.lines[line].length * 1.5).toString() + ', end)') : null,
           fontSize: window.screen.width <= 400 ? '16px' : '22px',
         }} onAnimationEnd={(e) => {handleBubbleEnd(e, p.lines.length)}}>
           {p.lines[line]}
@@ -29,20 +30,22 @@ function App() {
       </div>
     );
   }
-  
-  const [saver, setSaver] = useState(null);
 
   function handleEnter(event) {
     event.preventDefault();
-    setSaver(setTimeout(() => {
+    var tmp = setTimeout(() => {
       setVisible(true);
-    }, 1000));
+    }, 1500);
+    setSaver(tmp);
     //console.log('set')
   }
 
   function handleLeave(event) {
     event.preventDefault();
-    clearTimeout(saver);
+    if (saver !== null) {
+      clearTimeout(saver);
+      setSaver(null);
+    }
     //console.log('cleared')
   }
 
