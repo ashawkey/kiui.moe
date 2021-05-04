@@ -15,14 +15,16 @@ function App() {
   const [line, setLine] = useState(0);
   const [saver, setSaver] = useState(null);
   const [visible, setVisible] = useState(false);
+
+  const on_phone = window.screen.width <= 400;
   
   function renderPage(p) {
     return (
-      <div className="container" onMouseEnter={(e) => {handleEnter(e)}} onMouseLeave={(e) => {handleLeave(e)}}>
+      <div className="container centered unselectable" onMouseEnter={(e) => {handleEnter(e)}} onMouseLeave={(e) => {handleLeave(e)}}>
         <div className='bubble' style={{
           visibility: visible ? 'visible' : 'hidden',
           animation: visible ? ('typing ' + (Math.floor(p.lines[line].length / 15) + 0.5).toString() + 's' + ' steps(' + Math.floor(p.lines[line].length * 1.5).toString() + ', end)') : null,
-          fontSize: window.screen.width <= 400 ? '16px' : '22px',
+          fontSize: on_phone ? '12px' : '22px',
         }} onAnimationEnd={(e) => {handleBubbleEnd(e, p.lines.length)}}>
           {p.lines[line]}
         </div>
@@ -87,7 +89,7 @@ function App() {
     {
       name: 'blogs',
       color: '#a5c7c9',
-      lines: ['Well ... This used to be a blog system, but now almost unused.'],
+      lines: ['Well ... This used to be a blog system.'],
       component: <a href="https://hawia.xyz/blogs/"> <img alt="grey" className="icon heart" src={icon_grey_heart}/> </a>,
     },
   ] 
@@ -122,6 +124,8 @@ function App() {
           downHandler={nextPage}
           leftHandler={prevPage}
           rightHandler={nextPage}
+          disableSwipe={on_phone ? false : true}
+          disableKeyboard={true}
           customStyle={{
             width: "100%",
             height: "100%",
@@ -129,9 +133,7 @@ function App() {
             transition: "background-color .5s ease-out",
           }}
         >
-          <div className='centered unselectable'>
-            {rendered_pages[page]}
-          </div>
+        {rendered_pages[page]}  
         </ReactScrollWheelHandler>
       </div>
     </div>
