@@ -107,7 +107,7 @@ function Pheobe() {
     }, [rtime, checked]);
 
     function tick() {
-      console.log('tick', rtime);
+      //console.log('tick', rtime);
       if (rtime > 0) {
         setRtime((rtime) => rtime - 1);
       } else {
