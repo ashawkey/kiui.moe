@@ -9,6 +9,11 @@ import icon_timer from './static/timer.png'
 
 import Pheobe from './phoebe'
 
+function isTouchDevice() {
+  return (('ontouchstart' in window) ||
+     (navigator.maxTouchPoints > 0) ||
+     (navigator.msMaxTouchPoints > 0));
+}
 
 function App() {
   const [page, setPage] = useState(0);
@@ -124,9 +129,9 @@ function App() {
           downHandler={nextPage}
           leftHandler={prevPage}
           rightHandler={nextPage}
-          disableSwipe={on_phone ? false : true}
+          disableSwipe={isTouchDevice() ? false : true}
           disableKeyboard={true}
-          customStyle={{
+          style={{
             width: "100%",
             height: "100%",
             backgroundColor: pages[page].color,

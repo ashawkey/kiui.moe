@@ -127,7 +127,7 @@ function Pheobe() {
       var options = {
         body: "Time to have a rest.",
         icon: notif_icon,
-        dir: "ltr" // text direction.
+        dir: "ltr" // text direction, left to right.
       };
       notificationRef.current = new Notification("Hey!", options);
     }
@@ -151,7 +151,7 @@ function Pheobe() {
     }
 
     return (
-      <div class='floater'> 
+      <div className='floater'> 
         <Checkbox disabled={visible} color="default" checked={checked} onChange={handleCheck} name="timer" />
         {checked ? formatTime(rtime) : 'Remind me every hour.'}
       </div>
@@ -170,7 +170,7 @@ function Pheobe() {
         </div>
         <img alt="sprite" className="ph" onMouseEnter={(e) => {handleEnter(e)}} src={sprite}/>
       </div>
-      {on_phone ? null : Floater()}
+      {Floater()}
     </React.Fragment>
   );
 }
