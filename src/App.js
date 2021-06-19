@@ -77,25 +77,25 @@ function App() {
       name: 'nonsense',
       color: '#adadad',
       lines: ['This is NoNSeNSe, a minimal online note taking App.'],
-      component: <a href="https://hawia.xyz/nonsense/"> <img alt="purple" className="icon heart" src={icon_purple_heart}/> </a>,
+      component: <a href="https://kiui.moe/nonsense/"> <img alt="purple" className="icon heart" src={icon_purple_heart}/> </a>,
     },
     {
       name: 'umbra',
       color: '#ffcccc',
       lines: ['Ubi est lux, illic est umbra.'],
-      component: <a href="https://hawia.xyz/umbra/"> <img alt="white" className="icon heart" src={icon_white_heart}/> </a>,
+      component: <a href="https://kiui.moe/umbra/"> <img alt="white" className="icon heart" src={icon_white_heart}/> </a>,
     },
     {
       name: 'lifetime',
       color: '#ffffff',
       lines: ['Memento mori.'],
-      component: <a href="https://hawia.xyz/lifetime/"> <img alt="timer" className="icon timer" src={icon_timer}/> </a>,
+      component: <a href="https://kiui.moe/lifetime/"> <img alt="timer" className="icon timer" src={icon_timer}/> </a>,
     },
     {
       name: 'blogs',
       color: '#a5c7c9',
       lines: ['Well ... This used to be a blog system.'],
-      component: <a href="https://hawia.xyz/blogs/"> <img alt="grey" className="icon heart" src={icon_grey_heart}/> </a>,
+      component: <a href="https://kiui.moe/blogs/"> <img alt="grey" className="icon heart" src={icon_grey_heart}/> </a>,
     },
   ] 
 
