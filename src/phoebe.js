@@ -25,13 +25,12 @@ function Pheobe() {
   const animations = {
     // idle
     0: [ph_00, ph_00, ph_01, ph_01],
-    // confusing
+    // tilt head
     1: [ph_00, ph_11, ph_12, ph_13, ph_13, ph_13, ph_13, ph_13, ph_13, ph_12, ph_11, ph_00],
   }
 
   const lines = [
-    "Welcome to haw's homepage.",
-    "I'm here to guide you.",
+    "Welcome to kiui's homepage.",
     "Feel free to scroll and see around.",
   ]
 
@@ -163,7 +162,7 @@ function Pheobe() {
       <div className="container centered unselectable" onClick={(e) => {e.preventDefault(); handleClick(e)}}>
         <div className='bubble' style={{
           visibility: visible ? 'visible' : 'hidden',
-          animation: visible? ('typing ' + Math.floor(line.length / 15).toString() + 's' + ' steps(' + Math.floor(line.length * 1.5).toString() + ', end)') : null,
+          animation: visible? ('typing ' + '1s' + ' steps(' + Math.floor(line.length * 1.5).toString() + ', end)') : null,
           fontSize: on_phone ? '16px' : '22px',
         }} onAnimationEnd={(e) => {handleBubbleEnd(e)}}>
           {line}

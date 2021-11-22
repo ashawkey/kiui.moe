@@ -28,7 +28,7 @@ function App() {
       <div className="container centered unselectable" onMouseEnter={(e) => {handleEnter(e)}} onMouseLeave={(e) => {handleLeave(e)}}>
         <div className='bubble' style={{
           visibility: visible ? 'visible' : 'hidden',
-          animation: visible ? ('typing ' + (Math.floor(p.lines[line].length / 15) + 0.5).toString() + 's' + ' steps(' + Math.floor(p.lines[line].length * 1.5).toString() + ', end)') : null,
+          animation: visible ? ('typing ' + '1s' + ' steps(' + Math.floor(p.lines[line].length * 1.5).toString() + ', end)') : null,
           fontSize: on_phone ? '12px' : '22px',
         }} onAnimationEnd={(e) => {handleBubbleEnd(e, p.lines.length)}}>
           {p.lines[line]}
@@ -76,7 +76,7 @@ function App() {
     {
       name: 'nonsense',
       color: '#adadad',
-      lines: ['This is NoNSeNSe, a minimal online note taking App.'],
+      lines: ['NoNSeNSe, a minimal note taking App.'],
       component: <a href="https://kiui.moe/nonsense/"> <img alt="purple" className="icon heart" src={icon_purple_heart}/> </a>,
     },
     {
@@ -94,7 +94,7 @@ function App() {
     {
       name: 'blogs',
       color: '#a5c7c9',
-      lines: ['Well ... This used to be a blog system.'],
+      lines: ['A deprecated blog system.'],
       component: <a href="https://kiui.moe/blogs/"> <img alt="grey" className="icon heart" src={icon_grey_heart}/> </a>,
     },
   ] 
